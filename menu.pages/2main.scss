@@ -34,7 +34,7 @@ $shadow-color: rgb(197, 195, 195);
    
 } 
 
-@keyframes pr-bar{
+@keyframes fill-bg{
   
    
         0% {
@@ -58,6 +58,28 @@ $shadow-color: rgb(197, 195, 195);
         }
 }
 
+@keyframes loading-blocks{
+    0%{
+        transform: translateY(50%);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+}
+
+@keyframes text-shrink{
+    0%{
+        width: 100%;
+    }
+    100%{
+        width: 86%;
+    }
+}
+
 
 
 
@@ -68,20 +90,7 @@ $shadow-color: rgb(197, 195, 195);
   /*Start of mobile version*/
 @media (max-width: 480px) {
     /*working on header*/
-    @keyframes loading-blocks{
-        0%{
-            transform: translateY(50%);
-            opacity: 0;
-        }
     
-        100%{
-            transform: translateY(0);
-            opacity: 1;
-        }
-    
-    }
-    
-
     .header{
         display: flex;
         z-index: 2;
@@ -135,18 +144,17 @@ $shadow-color: rgb(197, 195, 195);
         & h3{
             margin-bottom: 5px;
             margin-top: 5px;
-            width:75%;
+            
         }
         .menu-title{            
             text-underline-offset: 10px;  
            
             margin: 35px 0 30px 20px;
-            animation: loading-dishes 1s;
+            
             animation-delay: 1s;
             transform-origin: 50% top;
             &__block{
-                display: flex;
-                flex-wrap: wrap;
+                display: flex;               
                 flex-direction: row;
                 background-color: white;
                 border-radius: 20px;
@@ -160,9 +168,11 @@ $shadow-color: rgb(197, 195, 195);
                 transform-origin: 50% top;
                 & .descrp{
                     display: inline-block;
-                    
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
                     margin-top: 10px;
-                    margin-bottom: 10px;
+                    margin-bottom: 10px;                  
                     
                     & > span {
                         flex: auto;
@@ -180,27 +190,22 @@ $shadow-color: rgb(197, 195, 195);
                         
                         
                 }
-                & .price-check {
+                & .chosen-dish {
                     position:relative;   
-                    flex: 0;
-                       
+                    flex: 0;                       
                     background-color: $tertiary-color;
                     visibility: hidden;
-                    display: inline-flex; 
-                    transition: width 1s; 
+                    display: inline-flex;                      
                     transform-origin: right;
-                                                 
-                       
+                                                                        
                     & i {
                         position: absolute;
                         top:20px;
                         
                         visibility:hidden;
                         flex: 0;
-                        margin-right: 0px;
-                        color: black;
-                        align-self: center;
-                        
+                        margin-right: 0px;                        
+                        align-self: center;                        
                         color: $tertiary-color;   
                                                                           
                     }
@@ -208,33 +213,39 @@ $shadow-color: rgb(197, 195, 195);
                 }        
                 
                 &:hover {
+                    & .descrp .descrp-text{
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        animation: text-shrink 1s forwards;
+                        display:block;
                         
+                        
+                    }    
                     & .price{
-                        transform: translateX(-35px);
-                        margin-right: -20px;
+                        transform: translateX(-55px);
+                        margin-right: -50px;
+                                                
                                                                               
                     }
-                    & .price-check {
+                    & .chosen-dish {
                             
                         visibility:visible;  
                         background-color: $tertiary-color;  
                                
                         transform-origin: right;  
                         padding: 30px;
-                        padding-left: 40px; 
-                        animation: pr-bar 1s;
-                        z-index:1;
-                                                                                                                                       
-                            
-                         
+                        padding-left: 45px; 
+                        animation: fill-bg 1s;
+                                                                                                                                                            
                         & i {
-                            transform: translateX(-25px) rotate(-360deg);
+                            transform: translateX(-25px) rotate(360deg);
                             transition: transform 1s;
                             visibility: visible;                               
-                            font-size: 250%;
+                            font-size: 200%;
                             background-color: white;
                             border-radius: 50%;
-                            z-index:2;
+                        
                                                                                        
                         }
                                           

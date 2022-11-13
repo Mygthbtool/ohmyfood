@@ -13,7 +13,7 @@ html {
 }
 
 /*-----start with mobile version-----*/
-@-webkit-keyframes pr-bar {
+@-webkit-keyframes fill-bg {
   0% {
     transform: scaleX(0);
     opacity: 0.1;
@@ -34,7 +34,7 @@ html {
     transform: scaleX(1);
   }
 }
-@keyframes pr-bar {
+@keyframes fill-bg {
   0% {
     transform: scaleX(0);
     opacity: 0.1;
@@ -53,6 +53,42 @@ html {
   }
   100% {
     transform: scaleX(1);
+  }
+}
+@-webkit-keyframes loading-blocks {
+  0% {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes loading-blocks {
+  0% {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes text-shrink {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 86%;
+  }
+}
+@keyframes text-shrink {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 86%;
   }
 }
 /*Start of mobile version*/
@@ -60,26 +96,6 @@ html {
 /*Start of mobile version*/
 @media (max-width: 480px) {
   /*working on header*/
-  @-webkit-keyframes loading-blocks {
-    0% {
-      transform: translateY(50%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  @keyframes loading-blocks {
-    0% {
-      transform: translateY(50%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
   .header {
     display: flex;
     z-index: 2;
@@ -133,20 +149,16 @@ html {
   .main h3 {
     margin-bottom: 5px;
     margin-top: 5px;
-    width: 75%;
   }
   .main .menu-title {
     text-underline-offset: 10px;
     margin: 35px 0 30px 20px;
-    -webkit-animation: loading-dishes 1s;
-            animation: loading-dishes 1s;
     -webkit-animation-delay: 1s;
             animation-delay: 1s;
     transform-origin: 50% top;
   }
   .main .menu-title__block {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: row;
     background-color: white;
     border-radius: 20px;
@@ -161,6 +173,9 @@ html {
   }
   .main .menu-title__block .descrp {
     display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     margin-top: 10px;
     margin-bottom: 10px;
   }
@@ -175,47 +190,51 @@ html {
     margin-right: 20px;
     margin-bottom: 10px;
   }
-  .main .menu-title__block .price-check {
+  .main .menu-title__block .chosen-dish {
     position: relative;
     flex: 0;
     background-color: #99E2D0;
     visibility: hidden;
     display: inline-flex;
-    transition: width 1s;
     transform-origin: right;
   }
-  .main .menu-title__block .price-check i {
+  .main .menu-title__block .chosen-dish i {
     position: absolute;
     top: 20px;
     visibility: hidden;
     flex: 0;
     margin-right: 0px;
-    color: black;
     align-self: center;
     color: #99E2D0;
   }
-  .main .menu-title__block:hover .price {
-    transform: translateX(-35px);
-    margin-right: -20px;
+  .main .menu-title__block:hover .descrp .descrp-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-animation: text-shrink 1s forwards;
+            animation: text-shrink 1s forwards;
+    display: block;
   }
-  .main .menu-title__block:hover .price-check {
+  .main .menu-title__block:hover .price {
+    transform: translateX(-55px);
+    margin-right: -50px;
+  }
+  .main .menu-title__block:hover .chosen-dish {
     visibility: visible;
     background-color: #99E2D0;
     transform-origin: right;
     padding: 30px;
-    padding-left: 40px;
-    -webkit-animation: pr-bar 1s;
-            animation: pr-bar 1s;
-    z-index: 1;
+    padding-left: 45px;
+    -webkit-animation: fill-bg 1s;
+            animation: fill-bg 1s;
   }
-  .main .menu-title__block:hover .price-check i {
-    transform: translateX(-25px) rotate(-360deg);
+  .main .menu-title__block:hover .chosen-dish i {
+    transform: translateX(-25px) rotate(360deg);
     transition: transform 1s;
     visibility: visible;
-    font-size: 250%;
+    font-size: 200%;
     background-color: white;
     border-radius: 50%;
-    z-index: 2;
   }
   .main u {
     text-decoration-thickness: 3px;
