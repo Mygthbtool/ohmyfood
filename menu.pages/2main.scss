@@ -32,29 +32,44 @@ $bg-image: linear-gradient(to top ,$primary-color, $secondary-color);
     box-shadow: $color;
    
 } 
+//animationS
 
-@keyframes fill-bg{
-  
+@keyframes colred-heart{
+    0%{
+        z-index: 0;
+        opacity:0;
+        visibility: hidden;
+    }
+    100%{
+        z-index: 2;
+        opacity: 1;
+        visibility: visible;
+
+    }
+}
+
+@keyframes fill-bg{  
    
-        0% {
-            transform: scaleX(0);
-            opacity: .1;
-        }
-        17% {
-            transform: scaleX(.18);
-        }
-        24% {
-            transform: scaleX(.4);
-        }
-        46% {
-            transform: scaleX(.81);
-        }
-        85%,100% {
-            opacity: 1;
-        }
-        100% {
-            transform: scaleX(1);
-        }
+    0% {
+        transform: scaleX(0);
+        opacity: .1;
+    }
+    17% {
+        transform: scaleX(.18);
+    }
+    24% {
+        transform: scaleX(.4);
+    }
+    46% {
+        transform: scaleX(.81);
+    }
+    85%,100% {
+        opacity: 1;
+    }
+    100% {
+        transform: scaleX(1);
+        
+    }
 }
 @keyframes tick-disappear{
     0% {
@@ -141,10 +156,11 @@ $bg-image: linear-gradient(to top ,$primary-color, $secondary-color);
             
         &__top{
             display:flex;
-            justify-content: flex-start;
+            justify-content: space-between;
             width: 90%;
            
             &-heading{
+            flex:auto;
             font-family: 'Shrikhand', cursive;
             font-weight: lighter;
             font-size: 26px;
@@ -152,11 +168,34 @@ $bg-image: linear-gradient(to top ,$primary-color, $secondary-color);
             margin-bottom: 0px;
             }
             &-heart-icon{
+                position: absolute;
                 font-size: 180%;
-                margin-top: 25px;
-                margin-left: auto;
-                margin-bottom: 0px;
+                top: 35px;
+                left: auto;                
+                right: 10%;
+            }    
+            & .fa-solid{
+                background: linear-gradient(to top, $secondary-color, $primary-color);
+                background-clip: text;
+                color:transparent;                  
+                transform-origin: bottom;
+                visibility: hidden;                   
+               
+            }             
+            & .fa-regular{ 
+                visibility: visible; 
+                transition: opacity .2s;
+                &:hover, &:active{               
+                    opacity: 0;
+                    & + .fa-solid.fa-heart{
+                          animation: colred-heart 2s ease-in-out forwards;                                     
+                    
+                    }
+                }
             }
+                
+               
+            
         }
         & h3{
             margin-bottom: 5px;
@@ -181,6 +220,7 @@ $bg-image: linear-gradient(to top ,$primary-color, $secondary-color);
                 overflow: hidden;
                
                 animation: loading-blocks 1s ease-in-out forwards;
+               
                 &--1{
                     animation-delay: 0.1s;
                 }
@@ -225,7 +265,7 @@ $bg-image: linear-gradient(to top ,$primary-color, $secondary-color);
                     & i {
                         position: absolute;
                         top:20px;
-                        
+                        transition: transform 1s;
                         visibility:hidden;
                         flex: 0;
                         margin-right: 0px;                        
@@ -237,56 +277,53 @@ $bg-image: linear-gradient(to top ,$primary-color, $secondary-color);
                 }
                 
                 
-                &:hover, &:active {
-                   
+                &:hover {
+                                   
                     & .descrp .descrp-text{
                         white-space: nowrap;
                         overflow: hidden;
                         text-overflow: ellipsis;
                         animation: text-shrink 1s forwards;
-                        display:block;
-                                            
-                        
+                        display:block;                                                
                     }    
                     & .descrp .descrp-title{
                         display: block;
-                        overflow: visible;
-                                                
+                        overflow: visible;                                                
                     }
                     & .price{
                         transform: translateX(-55px);
                         margin-right: -50px;
-                                                                                                                              
+                                                                                                                            
                     }
                     & .chosen-dish {
-                         
+                        
                         visibility:visible;  
                         background-color: $tertiary-color;  
-                               
+                            
                         transform-origin: right;  
                         padding: 30px;
                         padding-left: 45px; 
                         animation: fill-bg 1s forwards;
-                      
+                    
                                                                                                                                                             
                         & i {
                             transform: translateX(-25px) rotate(360deg);
-                            transition: transform 1s;
+                            
                             visibility: visible;                               
                             font-size: 200%;
                             background-color: white;
-                            border-radius: 50%;  
-                                                  
-                                                                                       
+                            border-radius: 50%;                                                      
+                                                                                    
                         }                                        
                             
                     }
-                    
-                }              
-               
-            }
-        }
                 
+
+                }
+            }
+               
+        }    
+
         u{
             text-decoration-thickness: 3px;
             text-decoration-color: $tertiary-color;
@@ -393,10 +430,30 @@ $bg-image: linear-gradient(to top ,$primary-color, $secondary-color);
             margin-bottom: 0px;
             }
             &-heart-icon{
+                position: absolute;
                 font-size: 180%;
-                margin-top: 25px;
-                margin-left: auto;
-                margin-bottom: 0px;
+                top: 35px;
+                left: auto;                
+                right: 10%;
+            }    
+            & .fa-solid{
+                background: linear-gradient(to top, $secondary-color, $primary-color);
+                background-clip: text;
+                color:transparent;                  
+                transform-origin: bottom;
+                visibility: hidden;                   
+               
+            }             
+            & .fa-regular{ 
+                visibility: visible; 
+                transition: opacity .2s;
+                &:hover, &:active{               
+                    opacity: 0;
+                    & + .fa-solid.fa-heart{
+                          animation: colred-heart 2s ease-in-out forwards;                                     
+                    
+                    }
+                }
             }
         }
         & h3{
@@ -613,7 +670,7 @@ $bg-image: linear-gradient(to top ,$primary-color, $secondary-color);
     }
     /*main section*/
     .main{
-        
+        position: relative;
         padding-top: 10px;
         padding-bottom: 60px;
         background-color: rgb(242, 239, 239);
@@ -633,10 +690,30 @@ $bg-image: linear-gradient(to top ,$primary-color, $secondary-color);
             margin-bottom: 0px;
             }
             &-heart-icon{
+                position: absolute;
                 font-size: 180%;
-                margin-top: 25px;
-                margin-left: auto;
-                margin-bottom: 0px;
+                top: 35px;
+                left: auto;                
+                right: 10%;
+            }    
+            & .fa-solid{
+                background: linear-gradient(to top, $secondary-color, $primary-color);
+                background-clip: text;
+                color:transparent;                  
+                transform-origin: bottom;
+                visibility: hidden;                   
+               
+            }             
+            & .fa-regular{ 
+                visibility: visible; 
+                transition: opacity .2s;
+                &:hover{               
+                    opacity: 0;
+                    & + .fa-solid.fa-heart{
+                          animation: colred-heart 2s linear forwards;                                     
+                    
+                    }
+                }
             }
         }
         & h3{
