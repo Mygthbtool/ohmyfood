@@ -237,7 +237,7 @@ html {
   /*----end Of NAV session----*/
   /*----start of main session----*/
   .main {
-    display: felx;
+    display: flex;
     flex-direction: column;
     background-color: rgb(242, 239, 239);
     padding-top: 20px;
@@ -264,7 +264,6 @@ html {
     height: 200px;
     -o-object-fit: cover;
        object-fit: cover;
-    aspect-ratio: 1;
     border-radius: 20px 20px 0 0;
     padding: 0px;
   }
@@ -499,7 +498,8 @@ html {
   /*----end Of NAV session----*/
   /*----start of main session----*/
   .main {
-    display: felx;
+    display: flex;
+    flex-direction: column;
     background-color: rgb(242, 239, 239);
     padding-top: 20px;
     padding-bottom: 40px;
@@ -775,7 +775,8 @@ html {
   /*----end Of NAV session----*/
   /*----start of main session----*/
   .main {
-    display: felx;
+    display: flex;
+    flex-direction: column;
     background-color: rgb(242, 239, 239);
     padding-top: 20px;
     padding-bottom: 40px;
