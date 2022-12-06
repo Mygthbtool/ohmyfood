@@ -1,0 +1,12 @@
+.header{
+    display: flex;
+    z-index: 2;
+    &__logo {    
+        width: 40%;
+        margin: 18px auto 10px 20%;
+    }
+    &__arrow{
+        margin: 20px 20% 10px 30px;
+    }               
+}
+/*-----End of header-----*/ 

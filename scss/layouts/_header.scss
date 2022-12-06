@@ -1,0 +1,75 @@
+//start with header//
+
+.header {
+    position:relative;
+    @include display-content;
+
+    &__logo{
+        display: block;
+        width: 40%;
+        margin: 18px auto 10px auto;      
+    }
+
+    &__location-sign{
+        margin-right: 10px;
+        font-size: 14px;
+        color: black;
+    }
+    &__location {
+        width: 100%;
+        margin-left: 0px;
+        margin-right: 0px;            
+        padding-top: 12px;
+        padding-bottom: 10px;
+        height: 50px;
+        border-top: rgb(188, 184, 184) 2px solid;
+        background-color: rgb(223, 210, 210);
+        font-size: 14px;
+         @include text-center;
+         & .search-text{
+            border: 0;
+            background-color: rgb(223, 210, 210) ;
+            font-weight: bold;
+            font-size: 16px;
+            color:black;
+
+         }
+    }
+    &__heading{            
+        font-size: 24px;
+        margin-bottom: 50px;
+        margin-top: 0px;
+        @include text-center;
+    }
+    &__text{            
+        font-size: 20px;
+        color: rgb(123, 118, 118);
+        margin-bottom: 30px; 
+        @include text-center;       
+    }
+    &__button {
+        display: block;
+        width: 50%;
+        margin: 10px auto 0 auto;
+        padding: 15px;
+        border: 0;
+        color: white;
+        border-radius: 25px;            
+        background-image: $bg-image;
+        box-shadow: 2px 4px 2px 2px $shadow-color; 
+        &:hover {
+            filter: brightness(120%);
+            box-shadow: 2px 4px 2px 2px darken($shadow-color, 20%);
+        }                                                    
+    }
+    &__mainpart{
+        background-color: rgb(242, 239, 239);
+        padding: 50px 0 60px 0;
+    }
+    & a{
+        text-decoration: none;
+       
+    }
+               
+}
+/*-----end of header----*/
