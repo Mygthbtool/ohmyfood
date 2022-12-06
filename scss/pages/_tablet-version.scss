@@ -66,6 +66,7 @@
             border-radius: 25px;
             background-image: $bg-image;
             box-shadow: 2px 4px 2px 2px $shadow-color; 
+            @include text-center;
             &:hover {
                 filter: brightness(120%);
                 box-shadow: 2px 4px 2px 2px darken($shadow-color, 20%);

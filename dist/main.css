@@ -180,6 +180,7 @@ html {
     border-radius: 25px;
     background-image: linear-gradient(to top, #9356DC, #FF79DA);
     box-shadow: 2px 4px 2px 2px rgb(197, 195, 195);
+    text-align: center;
   }
   .header__button:hover {
     filter: brightness(120%);
@@ -432,6 +433,7 @@ html {
     border-radius: 25px;
     background-image: linear-gradient(to top, #9356DC, #FF79DA);
     box-shadow: 2px 4px 2px 2px rgb(197, 195, 195);
+    text-align: center;
   }
   .header__button:hover {
     filter: brightness(120%);
@@ -710,6 +712,7 @@ html {
     border-radius: 25px;
     background-image: linear-gradient(to top, #9356DC, #FF79DA);
     box-shadow: 2px 4px 2px 2px rgb(197, 195, 195);
+    text-align: center;
   }
   .header__button:hover {
     filter: brightness(120%);
